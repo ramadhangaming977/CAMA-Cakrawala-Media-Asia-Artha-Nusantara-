@@ -93,10 +93,10 @@
             font-size: 16px;
         }
 
-        /* FULLSCREEN OVERLAY MENU (Sesuai Screenshot_20260617_090057.jpg) */
+        /* FULLSCREEN OVERLAY MENU */
         .overlay-menu {
             position: fixed;
-            top: 63px; /* Tepat di bawah header */
+            top: 63px;
             left: 0;
             width: 100%;
             height: calc(100vh - 63px);
@@ -122,7 +122,7 @@
         }
 
         .menu-section-title.highlight {
-            color: #b8860b; /* Warna Oranye/Emas Gelap */
+            color: #b8860b;
             border-bottom: 1px solid #eee;
             padding-top: 10px;
         }
@@ -143,11 +143,6 @@
             font-weight: 600;
             text-transform: uppercase;
             display: block;
-            transition: color 0.2s;
-        }
-
-        .menu-list li a:hover {
-            color: #008080;
         }
 
         /* BREADCRUMB STYLE */
@@ -281,12 +276,12 @@
         .stock-section h2 { font-size: 20px; color: #002B49; margin-bottom: 10px; }
         .stock-link { color: #008080; text-decoration: none; font-weight: 600; font-size: 13px; }
 
-        /* PAGE 2: PENYIARAN STYLES (Sesuai Screenshot_20260617_090108.jpg & 090115.jpg) */
+        /* PAGE 2: PENYIARAN STYLES (Update Khusus VANDITAMA TV) */
         .broadcasting-title {
             text-align: center;
             font-size: 32px;
             font-weight: 400;
-            color: #7cb342; /* Hijau Segar Elegan */
+            color: #7cb342;
             margin: 40px 0;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -309,7 +304,7 @@
         }
 
         .tv-profile-box {
-            background-color: #f39c12; /* Modifikasi dari Amber SCM ke Deep Orange Gold */
+            background-color: #f39c12;
             color: #ffffff;
             padding: 40px 25px;
         }
@@ -374,7 +369,6 @@
             font-size: 11px;
         }
 
-        /* RESPONSIVE LAYOUT FOR DESKTOP */
         @media (min-width: 768px) {
             .business-container { flex-direction: row; }
             .business-card { flex: 1; }
@@ -387,7 +381,7 @@
 </head>
 <body>
 
-    <!-- HEADER UTAMA (Selalu Ada) -->
+    <!-- HEADER UTAMA -->
     <header>
         <div class="logo-area" onclick="showPage('home')">
             <div class="logo-cama">CAMA</div>
@@ -403,7 +397,7 @@
         </div>
     </header>
 
-    <!-- INTERACTIVE MENU OVERLAY (Sesuai Screenshot_20260617_090057.jpg) -->
+    <!-- INTERACTIVE MENU OVERLAY -->
     <div class="overlay-menu" id="navOverlay">
         <div class="menu-section-title">Tentang Kami</div>
         
@@ -427,7 +421,7 @@
         <section class="hero-section">
             <h2>Cakrawala Media Asia</h2>
             <h1>MENYINERGIKAN INFORMASI, MENGINSPIRASI NUSANTARA</h1>
-            <p>Menghadirkan penyiaran digital terintegrasi dan platform media modern berkelas dunia.</p>
+            <p>Menghadirkan penyiaran digital terintegrasi melalui VANDITAMA TV dan ekosistem media modern berkelas dunia.</p>
             <a href="#" onclick="showPage('penyiaran')">Jelajahi Portofolio Kami &rarr;</a>
             <div class="slider-arrows">
                 <button class="arrow">&lsaquo;</button>
@@ -443,7 +437,7 @@
                 </div>
                 <div class="card-content">
                     <h3>Penyiaran Multi-Platform</h3>
-                    <p>CAMA mengudara di seluruh pelosok negeri lewat jaringan stasiun TV digital beresolusi tinggi, menyajikan informasi tercepat dan akurat.</p>
+                    <p>Melalui VANDITAMA TV, kami mengudara dengan jaringan siaran digital beresolusi tinggi untuk menyajikan informasi tercepat bagi seluruh lapisan masyarakat.</p>
                 </div>
             </div>
 
@@ -475,47 +469,44 @@
     </div>
 
 
-    <!-- ==================== PAGE 2: HALAMAN PENYIARAN ==================== -->
-    <!-- (Modifikasi Total Orisinil dari Screenshot_20260617_090108.jpg & 090115.jpg) -->
+    <!-- ==================== PAGE 2: HALAMAN PENYIARAN (VANDITAMA TV) ==================== -->
     <div id="penyiaranPage" class="page">
-        <!-- Jalur Menu / Breadcrumb -->
         <div class="breadcrumb">
             🏠 &gt; Usaha Kami &gt; <span>Penyiaran</span>
         </div>
 
         <h1 class="broadcasting-title">Penyiaran</h1>
         
-        <!-- Gambar Studio Produksi Modern CAMA -->
         <div class="studio-banner"></div>
 
-        <!-- Detail Jaringan Penyiaran (Modifikasi total teks agar legal & orisinil) -->
+        <!-- Teks Resmi yang Telah Disesuaikan ke VANDITAMA TV -->
         <div class="tv-profile-box">
-            <h2>PT CAKRAWALA TELEVISI DIGITAL (CTV)</h2>
+            <h2>PT VANDITAMA TELEVISI INDONESIA (VANDITAMA TV)</h2>
             <p>
-                CTV merupakan jaringan stasiun penyiaran Free-To-Air (FTA) nasional utama di bawah naungan CAMA Group yang berkomitmen menyajikan konten digital bermutu tinggi di era modern. Didirikan untuk memenuhi kebutuhan informasi interaktif masyarakat, CTV kini memancar melalui puluhan stasiun transmisi digital terpadu yang menjangkau lebih dari 150 juta pemirsa di seluruh wilayah Indonesia.
+                VANDITAMA TV merupakan jaringan stasiun penyiaran Free-To-Air (FTA) nasional utama di bawah naungan CAMA Group yang berkomitmen menyajikan konten digital bermutu tinggi di era modern. Didirikan untuk memenuhi kebutuhan informasi interaktif masyarakat, VANDITAMA TV kini memancar melalui jaringan transmisi digital terpadu yang menjangkau lebih dari 150 juta pemirsa di seluruh wilayah Indonesia.
             </p>
             <p>
-                CTV mengedepankan program yang edukatif, komprehensif, dan menghibur. Rangkaian program unggulan kami mencakup tayangan sinema FTV drama yang menyentuh hati, program berita investigasi yang tajam, siaran olahraga nasional terkini, hingga panggung apresiasi musik anak bangsa. Dengan teknologi penyiaran mutakhir, kami terus melangkah maju menginspirasi Nusantara.
+                VANDITAMA TV mengedepankan program yang edukatif, komprehensif, dan menghibur. Rangkaian program unggulan kami mencakup tayangan sinema FTV drama yang menyentuh hati, program berita investigasi yang tajam, siaran olahraga nasional terkini, hingga panggung apresiasi musik anak bangsa. Dengan teknologi penyiaran mutakhir, kami terus melangkah maju menginspirasi Nusantara.
             </p>
-            <a href="#" class="web-link">Informasi lebih lengkap mengenai jaringan CTV dapat dilihat di www.ctv-digital.co.id</a>
+            <a href="#" class="web-link">Informasi lebih lengkap mengenai jaringan VANDITAMA TV dapat dilihat di www.vanditamatv.co.id</a>
         </div>
     </div>
 
 
-    <!-- FOOTER ASSET (Selalu Ada di Bawah Halaman Mana Pun) -->
+    <!-- FOOTER ASSET -->
     <footer>
         <div class="footer-grid">
             <div class="footer-block">
                 <h4>Tentang Korporasi</h4>
                 <ul>
-                    <li><a href="#">Profil Perusahaan</a></li>
+                    <li><a href="#" onclick="showPage('home')">Profil Perusahaan</a></li>
                     <li><a href="#">Struktur Manajemen</a></li>
                 </ul>
             </div>
             <div class="footer-block">
                 <h4>Lini Usaha</h4>
                 <ul>
-                    <li><a href="#" onclick="showPage('penyiaran')">Televisi Terestrial</a></li>
+                    <li><a href="#" onclick="showPage('penyiaran')">Televisi Terestrial (VANDITAMA TV)</a></li>
                     <li><a href="#">Produksi Sinema & FTV</a></li>
                 </ul>
             </div>
@@ -534,7 +525,6 @@
 
     <!-- INTERACTIVE JAVASCRIPT SYSTEM -->
     <script>
-        // Fungsi untuk membuka & menutup menu utama (tombol ☰)
         function toggleMenu() {
             var overlay = document.getElementById('navOverlay');
             overlay.classList.toggle('active');
@@ -545,24 +535,15 @@
             overlay.classList.remove('active');
         }
 
-        // Fungsi pemindah halaman tanpa reload (Halaman utama tetap aman tidak terhapus)
         function showPage(pageId) {
-            // Sembunyikan semua halaman terlebih dahulu
             var pages = document.getElementsByClassName('page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].classList.remove('active');
             }
-            
-            // Tampilkan halaman yang dipilih
             document.getElementById(pageId + 'Page').classList.add('active');
-            
-            // Tutup menu overlay otomatis setelah diklik
             closeMenu();
-            
-            // Otomatis scroll layar ke bagian paling atas halaman baru
             window.scrollTo(0, 0);
         }
     </script>
 </body>
-    </html>
-    
+</html>
