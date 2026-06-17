@@ -15,7 +15,7 @@
         }
 
         body {
-            background-color: #f8f9fa;
+            background-color: #ffffff;
             color: #333;
             overflow-x: hidden;
         }
@@ -64,7 +64,7 @@
         }
 
         .btn-search {
-            background-color: #008080;
+            background-color: #ff9800;
             color: white;
             border: none;
             padding: 8px 12px;
@@ -74,10 +74,10 @@
         }
 
         .lang-select {
-            border: 1px solid #002B49;
+            border: 1px solid #ccc;
             padding: 7px 12px;
-            background: transparent;
-            color: #002B49;
+            background: #fff;
+            color: #333;
             font-weight: 600;
             border-radius: 4px;
         }
@@ -93,7 +93,7 @@
             font-size: 16px;
         }
 
-        /* FULLSCREEN OVERLAY MENU */
+        /* MENU OVERLAY */
         .overlay-menu {
             position: fixed;
             top: 63px;
@@ -119,12 +119,7 @@
             letter-spacing: 1px;
             margin-bottom: 15px;
             padding-bottom: 5px;
-        }
-
-        .menu-section-title.highlight {
-            color: #b8860b;
             border-bottom: 1px solid #eee;
-            padding-top: 10px;
         }
 
         .menu-list {
@@ -138,31 +133,35 @@
 
         .menu-list li a {
             text-decoration: none;
-            color: #333;
+            color: #002B49;
             font-size: 16px;
             font-weight: 600;
             text-transform: uppercase;
             display: block;
         }
 
-        /* BREADCRUMB STYLE */
+        /* BREADCRUMB STYLE (Sesuai Screenshot_20260617_092951.jpg) */
         .breadcrumb {
-            background-color: #f1f5f9;
+            background-color: #ffffff;
             padding: 15px 20px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
-            color: #666;
+            color: #777;
             display: flex;
             align-items: center;
             gap: 8px;
-            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: #777;
+            text-decoration: none;
         }
 
         .breadcrumb span {
-            color: #002B49;
+            color: #ff9800;
         }
 
-        /* APP PAGES MANAGEMENT */
+        /* PAGE MANAGEMENT */
         .page {
             display: none;
         }
@@ -171,46 +170,22 @@
             display: block;
         }
 
-        /* PAGE 1: HOME STYLES */
+        /* ================= HALAMAN UTAMA STYLES ================= */
         .hero-section {
             background: linear-gradient(rgba(0, 43, 73, 0.85), rgba(0, 128, 128, 0.6)), 
                         url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
-            height: 70vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 40px;
             color: white;
-            position: relative;
         }
 
-        .hero-section h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; color: #00eeee; }
-        .hero-section h1 { font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
-        .hero-section p { font-size: 13px; margin-bottom: 25px; opacity: 0.9; }
-        .hero-section a { color: #00eeee; text-decoration: none; font-weight: 600; font-size: 14px; }
-
-        .slider-arrows {
-            position: absolute;
-            bottom: 30px;
-            left: 40px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .arrow {
-            width: 45px;
-            height: 45px;
-            border: 2px solid white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            background: transparent;
-            font-weight: bold;
-        }
+        .hero-section h1 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
+        .hero-section p { font-size: 14px; margin-bottom: 25px; opacity: 0.9; }
 
         .section-title {
             text-align: center;
@@ -225,6 +200,7 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+            margin-bottom: 40px;
         }
 
         .business-card {
@@ -232,150 +208,118 @@
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            cursor: pointer;
         }
 
-        .card-img {
-            height: 180px;
+        .card-img-home {
+            height: 150px;
             background-size: cover;
             background-position: center;
-            position: relative;
         }
 
-        .card-icon-circle {
-            width: 55px;
-            height: 55px;
-            background-color: #008080;
-            border-radius: 50%;
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            border: 3px solid white;
-        }
-
-        .card-content {
-            padding: 35px 20px 20px 20px;
+        .card-content-home {
+            padding: 20px;
             text-align: center;
         }
 
-        .card-content h3 { font-size: 18px; color: #002B49; margin-bottom: 10px; }
-        .card-content p { font-size: 13px; color: #666; line-height: 1.5; }
+        .card-content-home h3 { font-size: 18px; color: #002B49; margin-bottom: 10px; }
+        .card-content-home p { font-size: 13px; color: #666; }
 
-        .stock-section {
-            background-color: #ffffff;
-            margin-top: 40px;
-            padding: 25px 20px;
-            border-top: 1px solid #e2e8f0;
+        /* ================= HALAMAN KONTEN STYLES (Sesuai SCM) ================= */
+        .konten-title-box {
+            text-align: center;
+            margin: 30px 0;
         }
 
-        .stock-section h2 { font-size: 20px; color: #002B49; margin-bottom: 10px; }
-        .stock-link { color: #008080; text-decoration: none; font-weight: 600; font-size: 13px; }
-
-        /* PAGE 2: PENYIARAN STYLES (Update Khusus VANDITAMA TV) */
-        .broadcasting-title {
-            text-align: center;
-            font-size: 32px;
+        .konten-title-box h1 {
+            font-size: 36px;
             font-weight: 400;
-            color: #7cb342;
-            margin: 40px 0;
-            letter-spacing: 3px;
+            color: #7cb342; /* Hijau persis seperti di screenshot */
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .broadcasting-title::after {
-            content: '';
-            display: block;
+        .konten-title-box .line {
             width: 80px;
             height: 2px;
             background-color: #7cb342;
-            margin: 15px auto 0 auto;
+            margin: 10px auto 0 auto;
         }
 
-        .studio-banner {
+        .scm-banner {
             width: 100%;
-            height: 250px;
-            background: url('https://images.unsplash.com/photo-1585699324551-f6c309eed262?auto=format&fit=crop&w=800&q=80') center center;
+            height: 230px;
+            background: url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=800&q=80') center center;
             background-size: cover;
         }
 
+        /* Container untuk daftar konten studio film */
+        .konten-list-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* Block Orange Box persis seperti SCM */
+        .orange-profile-box {
+            background-color: #ff9800; /* Oranye Terang SCM */
+            color: #ffffff;
+            padding: 30px 20px;
+            text-align: left;
+            border-bottom: 5px solid #ffffff;
+        }
+
+        .orange-profile-box h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+
+        .orange-profile-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            text-align: justify;
+        }
+
+        .orange-profile-box .logo-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .orange-profile-box .logo-container img {
+            max-width: 100%;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        /* ================= HALAMAN PENYIARAN STYLES ================= */
         .tv-profile-box {
-            background-color: #f39c12;
+            background-color: #002B49;
             color: #ffffff;
             padding: 40px 25px;
+            margin-top: 20px;
         }
-
-        .tv-profile-box h2 {
-            font-size: 22px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-            line-height: 1.3;
-        }
-
-        .tv-profile-box p {
-            font-size: 14px;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            text-align: justify;
-            opacity: 0.95;
-        }
-
-        .tv-profile-box .web-link {
-            display: block;
-            margin-top: 30px;
-            color: #ffffff;
-            text-decoration: underline;
-            font-weight: 600;
-            font-size: 13px;
-        }
+        .tv-profile-box h2 { color: #ff9800; margin-bottom: 15px; }
+        .tv-profile-box p { font-size: 14px; line-height: 1.7; text-align: justify; }
 
         /* FOOTER */
         footer {
-            background-color: #333333;
+            background-color: #222222;
             color: #b3b3b3;
-            padding: 35px 20px 20px 20px;
-        }
-
-        .footer-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .footer-block h4 {
-            color: #ffffff;
-            font-size: 14px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #008080;
-            padding-bottom: 4px;
-            display: inline-block;
-        }
-
-        .footer-block ul { list-style: none; }
-        .footer-block ul li { margin-bottom: 8px; }
-        .footer-block ul li a { color: #b3b3b3; text-decoration: none; font-size: 13px; }
-
-        .copyright-bar {
+            padding: 25px 20px;
             text-align: center;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #444;
-            font-size: 11px;
-        }
-
-        @media (min-width: 768px) {
-            .business-container { flex-direction: row; }
-            .business-card { flex: 1; }
-            .footer-grid { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
-            .footer-block { min-width: 200px; }
-            .studio-banner { height: 450px; }
-            .tv-profile-box { padding: 50px 100px; }
+            font-size: 12px;
+            border-top: 3px solid #ff9800;
         }
     </style>
 </head>
@@ -397,149 +341,154 @@
         </div>
     </header>
 
-    <!-- INTERACTIVE MENU OVERLAY -->
+    <!-- FULLSCREEN OVERLAY MENU (AKSES INTERAKTIF) -->
     <div class="overlay-menu" id="navOverlay">
-        <div class="menu-section-title">Tentang Kami</div>
-        
-        <div class="menu-section-title highlight">Usaha Kami</div>
+        <div class="menu-section-title">USAHA KAMI</div>
         <ul class="menu-list">
-            <li><a href="#" onclick="showPage('penyiaran')">Penyiaran</a></li>
-            <li><a href="#" onclick="closeMenu()">Konten</a></li>
-            <li><a href="#" onclick="closeMenu()">Layanan Multipleksing</a></li>
-            <li><a href="#" onclick="closeMenu()">Lainnya</a></li>
+            <li><a href="#" onclick="showPage('home')">Beranda Utama</a></li>
+            <li><a href="#" onclick="showPage('penyiaran')">Penyiaran (VANDITAMA TV)</a></li>
+            <li><a href="#" onclick="showPage('konten')">Konten (Rumah Produksi)</a></li>
         </ul>
-
-        <div class="menu-section-title">Tata Kelola</div>
-        <div class="menu-section-title">Hubungan Investor</div>
-        <div class="menu-section-title">Tanggung Jawab Sosial Perusahaan</div>
-        <div class="menu-section-title">Karir</div>
+        <div class="menu-section-title">INFO KORPORASI</div>
+        <ul class="menu-list">
+            <li><a href="#" onclick="closeMenu()">Hubungan Investor</a></li>
+            <li><a href="#" onclick="closeMenu()">Tata Kelola</a></li>
+        </ul>
     </div>
 
 
-    <!-- ==================== PAGE 1: HALAMAN UTAMA ==================== -->
+    <!-- ==================== HALAMAN 1: UTAMA (HOME) ==================== -->
     <div id="homePage" class="page active">
         <section class="hero-section">
-            <h2>Cakrawala Media Asia</h2>
             <h1>MENYINERGIKAN INFORMASI, MENGINSPIRASI NUSANTARA</h1>
-            <p>Menghadirkan penyiaran digital terintegrasi melalui VANDITAMA TV dan ekosistem media modern berkelas dunia.</p>
-            <a href="#" onclick="showPage('penyiaran')">Jelajahi Portofolio Kami &rarr;</a>
-            <div class="slider-arrows">
-                <button class="arrow">&lsaquo;</button>
-                <button class="arrow">&rsaquo;</button>
-            </div>
+            <p>Portal resmi holding media terintegrasi Cakrawala Media Asia Artha Nusantara.</p>
         </section>
 
-        <h2 class="section-title">Bisnis Kami</h2>
+        <h2 class="section-title">Lini Bisnis Utama</h2>
         <div class="business-container">
-            <div class="business-card" onclick="showPage('penyiaran')" style="cursor: pointer;">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80');">
-                    <div class="card-icon-circle">📡</div>
-                </div>
-                <div class="card-content">
-                    <h3>Penyiaran Multi-Platform</h3>
-                    <p>Melalui VANDITAMA TV, kami mengudara dengan jaringan siaran digital beresolusi tinggi untuk menyajikan informasi tercepat bagi seluruh lapisan masyarakat.</p>
+            <!-- Card ke Penyiaran -->
+            <div class="business-card" onclick="showPage('penyiaran')">
+                <div class="card-img-home" style="background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content-home">
+                    <h3>Penyiaran Terestrial</h3>
+                    <p>Layanan penyiaran televisi nasional digital Free-To-Air melalui VANDITAMA TV.</p>
                 </div>
             </div>
 
-            <div class="business-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1492446845049-9c50cc313f00?auto=format&fit=crop&w=400&q=80');">
-                    <div class="card-icon-circle">🎬</div>
-                </div>
-                <div class="card-content">
+            <!-- Card ke Konten -->
+            <div class="business-card" onclick="showPage('konten')">
+                <div class="card-img-home" style="background-image: url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=400&q=80');"></div>
+                <div class="card-content-home">
                     <h3>Produksi Konten & Sinema</h3>
-                    <p>Rumah produksi kami aktif melahirkan tayangan FTV drama unggulan, sinetron keluarga, dan mahakarya kreatif digital yang menghibur masyarakat.</p>
-                </div>
-            </div>
-
-            <div class="business-card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
-                    <div class="card-icon-circle">💼</div>
-                </div>
-                <div class="card-content">
-                    <h3>Sinergi Bisnis Digital</h3>
-                    <p>Pengembangan industri pendukung melalui manajemen talenta artis, agensi periklanan digital modern, dan inkubasi ekosistem startup.</p>
+                    <p>Pusat produksi multimedia, FTV, Sinetron, dan Film melalui ekosistem studio CAMA.</p>
                 </div>
             </div>
         </div>
-
-        <section class="stock-section">
-            <h2>Informasi Investasi & Saham</h2>
-            <a href="#" class="stock-link">Lihat Performa Saham CAMA Grup &rsaquo;</a>
-        </section>
     </div>
 
 
-    <!-- ==================== PAGE 2: HALAMAN PENYIARAN (VANDITAMA TV) ==================== -->
+    <!-- ==================== HALAMAN 2: PENYIARAN ==================== -->
     <div id="penyiaranPage" class="page">
         <div class="breadcrumb">
-            🏠 &gt; Usaha Kami &gt; <span>Penyiaran</span>
+            🏠 &gt; USAHA KAMI &gt; <span>PENYIARAN</span>
         </div>
-
-        <h1 class="broadcasting-title">Penyiaran</h1>
-        
-        <div class="studio-banner"></div>
-
-        <!-- Teks Resmi yang Telah Disesuaikan ke VANDITAMA TV -->
         <div class="tv-profile-box">
             <h2>PT VANDITAMA TELEVISI INDONESIA (VANDITAMA TV)</h2>
-            <p>
-                VANDITAMA TV merupakan jaringan stasiun penyiaran Free-To-Air (FTA) nasional utama di bawah naungan CAMA Group yang berkomitmen menyajikan konten digital bermutu tinggi di era modern. Didirikan untuk memenuhi kebutuhan informasi interaktif masyarakat, VANDITAMA TV kini memancar melalui jaringan transmisi digital terpadu yang menjangkau lebih dari 150 juta pemirsa di seluruh wilayah Indonesia.
-            </p>
-            <p>
-                VANDITAMA TV mengedepankan program yang edukatif, komprehensif, dan menghibur. Rangkaian program unggulan kami mencakup tayangan sinema FTV drama yang menyentuh hati, program berita investigasi yang tajam, siaran olahraga nasional terkini, hingga panggung apresiasi musik anak bangsa. Dengan teknologi penyiaran mutakhir, kami terus melangkah maju menginspirasi Nusantara.
-            </p>
-            <a href="#" class="web-link">Informasi lebih lengkap mengenai jaringan VANDITAMA TV dapat dilihat di www.vanditamatv.co.id</a>
+            <p>Stasiun televisi FTA nasional digital utama yang menghadirkan konten berita, edukasi, musik, dan hiburan keluarga berkualitas di seluruh pelosok nusantara.</p>
         </div>
     </div>
 
 
-    <!-- FOOTER ASSET -->
+    <!-- ==================== HALAMAN 3: KONTEN (STRUKTUR PERSIS SCM) ==================== -->
+    <div id="kontenPage" class="page">
+        <!-- Breadcrumb persis Screenshot_20260617_092951.jpg -->
+        <div class="breadcrumb">
+            🏠 &gt; USAHA KAMI &gt; <span>KONTEN</span>
+        </div>
+
+        <!-- Judul Hijau SCM -->
+        <div class="konten-title-box">
+            <h1>KONTEN</h1>
+            <div class="line"></div>
+        </div>
+
+        <!-- Gambar Kamera Syuting Set SCM -->
+        <div class="scm-banner"></div>
+
+        <!-- Daftar Berbagai Macam Rumah Produksi Milik CAMA di Kotak Oranye -->
+        <div class="konten-list-wrapper">
+            
+            <!-- MACO KONTEN 1: FRAMEWORKS FILMS -->
+            <div class="orange-profile-box">
+                <div class="logo-container">
+                    <!-- Memanggil file logo asli dari aset Bapak -->
+                    <img src="1780734740687.png" alt="Frameworks Films Logo">
+                </div>
+                <h2>PT ARKANANTA MEDIA SINEMA (FRAMEWORKS FILMS)</h2>
+                <p>
+                    Frameworks Films merupakan pilar premium dari divisi konten CAMA Group yang berfokus penuh pada produksi karya sinematografi layar lebar, film bioskop, dan original series berskala besar. 
+                </p>
+                <p>
+                    Dengan dukungan teknologi kamera mutakhir serta sutradara terbaik, studio ini berkomitmen melahirkan mahakarya visual berskala internasional.
+                </p>
+            </div>
+
+            <!-- MACAM KONTEN 2: CINEMAX STUDIOS -->
+            <div class="orange-profile-box">
+                <div class="logo-container">
+                    <!-- Memanggil file logo asli dari aset Bapak -->
+                    <img src="1781258168235.png" alt="Cinemax Studios Logo">
+                </div>
+                <h2>PT CINEMAX STUDIOS NUSANTARA (CINEMAX STUDIOS)</h2>
+                <p>
+                    Cinemax Studios adalah rumah produksi utama yang didedikasikan untuk menyuplai berbagai macam judul konten harian televisi nasional. Studio ini memproduksi Film Televisi (FTV) drama romansa, sinetron harian keluarga, hingga tayangan komedi situasi kreatif.
+                </p>
+                <p>
+                    Menjadi mesin utama pengisi jam tayang utama (prime-time) di stasiun TV grup maupun eksternal.
+                </p>
+            </div>
+
+            <!-- MACAM KONTEN 3: CREW ENTERTAINMENT -->
+            <div class="orange-profile-box">
+                <div class="logo-container">
+                    <!-- Memanggil file logo asli dari aset Bapak -->
+                    <img src="IMG_20260617_092825.jpeg" alt="Crew Entertainment Logo">
+                </div>
+                <h2>PT CREW ENTERTAINMENT INDONESIA (CREW ENTERTAINMENT)</h2>
+                <p>
+                    Crew Entertainment bergerak di bidang manajemen produksi terintegrasi, inkubasi talenta akting/musik, serta penyediaan fasilitas kru profesional untuk ekosistem perfilman tanah air. 
+                </p>
+                <p>
+                    Divisi ini memastikan ketersediaan sumber daya manusia terbaik demi lancarnya ratusan proyek tayangan hiburan di bawah naungan korporasi.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FOOTER PERUSAHAAN -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-block">
-                <h4>Tentang Korporasi</h4>
-                <ul>
-                    <li><a href="#" onclick="showPage('home')">Profil Perusahaan</a></li>
-                    <li><a href="#">Struktur Manajemen</a></li>
-                </ul>
-            </div>
-            <div class="footer-block">
-                <h4>Lini Usaha</h4>
-                <ul>
-                    <li><a href="#" onclick="showPage('penyiaran')">Televisi Terestrial (VANDITAMA TV)</a></li>
-                    <li><a href="#">Produksi Sinema & FTV</a></li>
-                </ul>
-            </div>
-            <div class="footer-block">
-                <h4>Hubungan Investor</h4>
-                <ul>
-                    <li><a href="#">Ikhtisar Keuangan</a></li>
-                    <li><a href="#">Laporan Tahunan</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright-bar">
-            Hak Cipta Dilindungi Undang-Undang &copy; 2026 PT Cakrawala Media Asia Artha Nusantara.
-        </div>
+        Hak Cipta Dilindungi Undang-Undang &copy; 2026 PT Cakrawala Media Asia Artha Nusantara.
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT SYSTEM -->
+    <!-- INTERACTIVE SCRIPT SYSTEM -->
     <script>
         function toggleMenu() {
-            var overlay = document.getElementById('navOverlay');
-            overlay.classList.toggle('active');
+            document.getElementById('navOverlay').classList.toggle('active');
         }
 
         function closeMenu() {
-            var overlay = document.getElementById('navOverlay');
-            overlay.classList.remove('active');
+            document.getElementById('navOverlay').classList.remove('active');
         }
 
         function showPage(pageId) {
+            // Sembunyikan semua halaman
             var pages = document.getElementsByClassName('page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].classList.remove('active');
             }
+            // Tampilkan halaman terpilih tanpa mematikan struktur data lainnya
             document.getElementById(pageId + 'Page').classList.add('active');
             closeMenu();
             window.scrollTo(0, 0);
