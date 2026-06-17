@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cakrawala Media Asia Artha Nusantara (CAMA)</title>
-    <!-- Menggunakan Font Modern & Icon Sederhana -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         /* RESET & BASE STYLES */
@@ -18,12 +17,13 @@
         body {
             background-color: #f8f9fa;
             color: #333;
+            overflow-x: hidden;
         }
 
-        /* 1. HEADER & NAVIGATION (Modifikasi dari SCM) */
+        /* HEADER & NAVIGATION */
         header {
             background-color: #ffffff;
-            border-bottom: 3px solid #002B49; /* Warna Biru Deep Khas CAMA */
+            border-bottom: 3px solid #002B49;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -37,6 +37,7 @@
         .logo-area {
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
 
         .logo-cama {
@@ -63,7 +64,7 @@
         }
 
         .btn-search {
-            background-color: #008080; /* Aksen Hijau Toska CAMA */
+            background-color: #008080;
             color: white;
             border: none;
             padding: 8px 12px;
@@ -89,15 +90,99 @@
             cursor: pointer;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 16px;
         }
 
-        /* 2. HERO BANNER - Sesuai Screenshot_20260617_080703.jpg */
+        /* FULLSCREEN OVERLAY MENU (Sesuai Screenshot_20260617_090057.jpg) */
+        .overlay-menu {
+            position: fixed;
+            top: 63px; /* Tepat di bawah header */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 63px);
+            background-color: #ffffff;
+            z-index: 999;
+            display: none;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .overlay-menu.active {
+            display: block;
+        }
+
+        .menu-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        .menu-section-title.highlight {
+            color: #b8860b; /* Warna Oranye/Emas Gelap */
+            border-bottom: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .menu-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .menu-list li {
+            margin-bottom: 15px;
+        }
+
+        .menu-list li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .menu-list li a:hover {
+            color: #008080;
+        }
+
+        /* BREADCRUMB STYLE */
+        .breadcrumb {
+            background-color: #f1f5f9;
+            padding: 15px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb span {
+            color: #002B49;
+        }
+
+        /* APP PAGES MANAGEMENT */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* PAGE 1: HOME STYLES */
         .hero-section {
             background: linear-gradient(rgba(0, 43, 73, 0.85), rgba(0, 128, 128, 0.6)), 
                         url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -106,38 +191,10 @@
             position: relative;
         }
 
-        .hero-section h2 {
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            color: #00eeee;
-        }
-
-        .hero-section h1 {
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            max-width: 600px;
-        }
-
-        .hero-section p {
-            font-size: 14px;
-            margin-bottom: 25px;
-            max-width: 500px;
-            opacity: 0.9;
-        }
-
-        .hero-section a {
-            color: #00eeee;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
+        .hero-section h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; color: #00eeee; }
+        .hero-section h1 { font-size: 28px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
+        .hero-section p { font-size: 13px; margin-bottom: 25px; opacity: 0.9; }
+        .hero-section a { color: #00eeee; text-decoration: none; font-weight: 600; font-size: 14px; }
 
         .slider-arrows {
             position: absolute;
@@ -155,27 +212,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             color: white;
-            font-weight: bold;
             background: transparent;
+            font-weight: bold;
         }
 
-        /* 3. BUSINESS SEGMENT - Sesuai Screenshot_20260617_081023.jpg s/d 081038.jpg */
         .section-title {
             text-align: center;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             color: #002B49;
-            margin: 50px 0 30px 0;
+            margin: 40px 0 25px 0;
         }
 
         .business-container {
-            padding: 0 20px max-width: 1200px;
-            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
         .business-card {
@@ -183,161 +237,159 @@
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         .card-img {
-            height: 200px;
+            height: 180px;
             background-size: cover;
             background-position: center;
             position: relative;
         }
 
         .card-icon-circle {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background-color: #008080;
             border-radius: 50%;
             position: absolute;
-            bottom: -30px;
+            bottom: -25px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 24px;
+            font-size: 20px;
             border: 3px solid white;
         }
 
         .card-content {
-            padding: 40px 20px 25px 20px;
+            padding: 35px 20px 20px 20px;
             text-align: center;
         }
 
-        .card-content h3 {
-            font-size: 20px;
-            color: #002B49;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .card-content h3 { font-size: 18px; color: #002B49; margin-bottom: 10px; }
+        .card-content p { font-size: 13px; color: #666; line-height: 1.5; }
 
-        .card-content p {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* 4. STOCK INFO - Sesuai Screenshot_20260617_081048.jpg */
         .stock-section {
             background-color: #ffffff;
-            margin: 40px 0 0 0;
-            padding: 30px 20px;
+            margin-top: 40px;
+            padding: 25px 20px;
             border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
         }
 
-        .stock-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .stock-section h2 { font-size: 20px; color: #002B49; margin-bottom: 10px; }
+        .stock-link { color: #008080; text-decoration: none; font-weight: 600; font-size: 13px; }
+
+        /* PAGE 2: PENYIARAN STYLES (Sesuai Screenshot_20260617_090108.jpg & 090115.jpg) */
+        .broadcasting-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 400;
+            color: #7cb342; /* Hijau Segar Elegan */
+            margin: 40px 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .stock-section h2 {
-            font-size: 24px;
-            color: #002B49;
-            margin-bottom: 15px;
+        .broadcasting-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: #7cb342;
+            margin: 15px auto 0 auto;
         }
 
-        .stock-link {
-            color: #008080;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
+        .studio-banner {
+            width: 100%;
+            height: 250px;
+            background: url('https://images.unsplash.com/photo-1585699324551-f6c309eed262?auto=format&fit=crop&w=800&q=80') center center;
+            background-size: cover;
+        }
+
+        .tv-profile-box {
+            background-color: #f39c12; /* Modifikasi dari Amber SCM ke Deep Orange Gold */
+            color: #ffffff;
+            padding: 40px 25px;
+        }
+
+        .tv-profile-box h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .tv-profile-box p {
             font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: justify;
+            opacity: 0.95;
         }
 
-        /* 5. BIG FOOTER & MENUS - Sesuai Screenshot_20260617_081048.jpg s/d 081057.jpg */
+        .tv-profile-box .web-link {
+            display: block;
+            margin-top: 30px;
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        /* FOOTER */
         footer {
             background-color: #333333;
-            color: #e0e0e0;
-            padding: 40px 20px 20px 20px;
+            color: #b3b3b3;
+            padding: 35px 20px 20px 20px;
         }
 
         .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 35px;
+            gap: 25px;
         }
 
         .footer-block h4 {
             color: #ffffff;
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border-bottom: 2px solid #008080;
-            padding-bottom: 5px;
+            padding-bottom: 4px;
             display: inline-block;
         }
 
-        .footer-block ul {
-            list-style: none;
-        }
-
-        .footer-block ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-block ul li a {
-            color: #b3b3b3;
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.2s;
-        }
-
-        .footer-block ul li a:hover {
-            color: #00eeee;
-        }
+        .footer-block ul { list-style: none; }
+        .footer-block ul li { margin-bottom: 8px; }
+        .footer-block ul li a { color: #b3b3b3; text-decoration: none; font-size: 13px; }
 
         .copyright-bar {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 30px;
+            padding-top: 15px;
             border-top: 1px solid #444;
             font-size: 11px;
-            color: #888;
         }
 
-        /* MEDIA QUERIES UNTUK TAMPILAN DESKTOP (Supaya Fleksibel) */
+        /* RESPONSIVE LAYOUT FOR DESKTOP */
         @media (min-width: 768px) {
-            .business-container {
-                flex-direction: row;
-            }
-            .business-card {
-                flex: 1;
-            }
-            .footer-grid {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
-            .footer-block {
-                flex: 1;
-                min-width: 200px;
-            }
+            .business-container { flex-direction: row; }
+            .business-card { flex: 1; }
+            .footer-grid { flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
+            .footer-block { min-width: 200px; }
+            .studio-banner { height: 450px; }
+            .tv-profile-box { padding: 50px 100px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. HEADER (Modifikasi Total Komponen Navigasi) -->
+    <!-- HEADER UTAMA (Selalu Ada) -->
     <header>
-        <div class="logo-area">
+        <div class="logo-area" onclick="showPage('home')">
             <div class="logo-cama">CAMA</div>
             <div class="logo-subtext">Cakrawala Media<br>Asia Artha</div>
         </div>
@@ -347,130 +399,170 @@
                 <option>ID</option>
                 <option>EN</option>
             </select>
-            <button class="menu-toggle">☰</button>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
     </header>
 
-    <!-- 2. HERO BANNER (Modifikasi Redaksi Teks Agar Legal) -->
-    <section class="hero-section">
-        <h2>Cakrawala Media Asia</h2>
-        <h1>MENYINERGIKAN INFORMASI, MENGINSPIRASI NUSANTARA</h1>
-        <p>Menghadirkan penyiaran digital terintegrasi dan platform media modern berkelas dunia.</p>
-        <a href="#bisnis">Jelajahi Portofolio Kami &rarr;</a>
-
-        <div class="slider-arrows">
-            <button class="arrow">&lsaquo;</button>
-            <button class="arrow">&rsaquo;</button>
-        </div>
-    </section>
-
-    <!-- 3. BUSINESS SEGMENT (3 Sektor Utama Usaha CAMA) -->
-    <h2 class="section-title" id="bisnis">Bisnis Kami</h2>
-    <div class="business-container">
+    <!-- INTERACTIVE MENU OVERLAY (Sesuai Screenshot_20260617_090057.jpg) -->
+    <div class="overlay-menu" id="navOverlay">
+        <div class="menu-section-title">Tentang Kami</div>
         
-        <!-- Sektor 1: Penyiaran -->
-        <div class="business-card">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80');">
-                <div class="card-icon-circle">📡</div>
-            </div>
-            <div class="card-content">
-                <h3>Penyiaran Multi-Platform</h3>
-                <p>CAMA mengudara di seluruh pelosok negeri lewat jaringan stasiun TV digital beresolusi tinggi, menyajikan informasi tercepat dan akurat.</p>
-            </div>
-        </div>
+        <div class="menu-section-title highlight">Usaha Kami</div>
+        <ul class="menu-list">
+            <li><a href="#" onclick="showPage('penyiaran')">Penyiaran</a></li>
+            <li><a href="#" onclick="closeMenu()">Konten</a></li>
+            <li><a href="#" onclick="closeMenu()">Layanan Multipleksing</a></li>
+            <li><a href="#" onclick="closeMenu()">Lainnya</a></li>
+        </ul>
 
-        <!-- Sektor 2: Konten/Sinetron/FTV -->
-        <div class="business-card">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1492446845049-9c50cc313f00?auto=format&fit=crop&w=400&q=80');">
-                <div class="card-icon-circle">🎬</div>
-            </div>
-            <div class="card-content">
-                <h3>Produksi Konten & Sinema</h3>
-                <p>Rumah produksi kami aktif melahirkan tayangan FTV drama unggulan, sinetron keluarga, dan mahakarya kreatif digital yang menghibur masyarakat.</p>
-            </div>
-        </div>
-
-        <!-- Sektor 3: Artha/Lainnya -->
-        <div class="business-card">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
-                <div class="card-icon-circle">💼</div>
-            </div>
-            <div class="card-content">
-                <h3>Sinergi Bisnis Digital</h3>
-                <p>Pengembangan industri pendukung melalui manajemen talenta artis, agensi periklanan digital modern, dan inkubasi ekosistem startup.</p>
-            </div>
-        </div>
-
+        <div class="menu-section-title">Tata Kelola</div>
+        <div class="menu-section-title">Hubungan Investor</div>
+        <div class="menu-section-title">Tanggung Jawab Sosial Perusahaan</div>
+        <div class="menu-section-title">Karir</div>
     </div>
 
-    <!-- 4. STOCK INFO (Modifikasi Informasi Pasar Modal) -->
-    <section class="stock-section">
-        <div class="stock-container">
+
+    <!-- ==================== PAGE 1: HALAMAN UTAMA ==================== -->
+    <div id="homePage" class="page active">
+        <section class="hero-section">
+            <h2>Cakrawala Media Asia</h2>
+            <h1>MENYINERGIKAN INFORMASI, MENGINSPIRASI NUSANTARA</h1>
+            <p>Menghadirkan penyiaran digital terintegrasi dan platform media modern berkelas dunia.</p>
+            <a href="#" onclick="showPage('penyiaran')">Jelajahi Portofolio Kami &rarr;</a>
+            <div class="slider-arrows">
+                <button class="arrow">&lsaquo;</button>
+                <button class="arrow">&rsaquo;</button>
+            </div>
+        </section>
+
+        <h2 class="section-title">Bisnis Kami</h2>
+        <div class="business-container">
+            <div class="business-card" onclick="showPage('penyiaran')" style="cursor: pointer;">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80');">
+                    <div class="card-icon-circle">📡</div>
+                </div>
+                <div class="card-content">
+                    <h3>Penyiaran Multi-Platform</h3>
+                    <p>CAMA mengudara di seluruh pelosok negeri lewat jaringan stasiun TV digital beresolusi tinggi, menyajikan informasi tercepat dan akurat.</p>
+                </div>
+            </div>
+
+            <div class="business-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1492446845049-9c50cc313f00?auto=format&fit=crop&w=400&q=80');">
+                    <div class="card-icon-circle">🎬</div>
+                </div>
+                <div class="card-content">
+                    <h3>Produksi Konten & Sinema</h3>
+                    <p>Rumah produksi kami aktif melahirkan tayangan FTV drama unggulan, sinetron keluarga, dan mahakarya kreatif digital yang menghibur masyarakat.</p>
+                </div>
+            </div>
+
+            <div class="business-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
+                    <div class="card-icon-circle">💼</div>
+                </div>
+                <div class="card-content">
+                    <h3>Sinergi Bisnis Digital</h3>
+                    <p>Pengembangan industri pendukung melalui manajemen talenta artis, agensi periklanan digital modern, dan inkubasi ekosistem startup.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="stock-section">
             <h2>Informasi Investasi & Saham</h2>
             <a href="#" class="stock-link">Lihat Performa Saham CAMA Grup &rsaquo;</a>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- 5. BIG FOOTER & MENUS (Modifikasi Menu Korporasi agar Tidak Plagiat) -->
+
+    <!-- ==================== PAGE 2: HALAMAN PENYIARAN ==================== -->
+    <!-- (Modifikasi Total Orisinil dari Screenshot_20260617_090108.jpg & 090115.jpg) -->
+    <div id="penyiaranPage" class="page">
+        <!-- Jalur Menu / Breadcrumb -->
+        <div class="breadcrumb">
+            🏠 &gt; Usaha Kami &gt; <span>Penyiaran</span>
+        </div>
+
+        <h1 class="broadcasting-title">Penyiaran</h1>
+        
+        <!-- Gambar Studio Produksi Modern CAMA -->
+        <div class="studio-banner"></div>
+
+        <!-- Detail Jaringan Penyiaran (Modifikasi total teks agar legal & orisinil) -->
+        <div class="tv-profile-box">
+            <h2>PT CAKRAWALA TELEVISI DIGITAL (CTV)</h2>
+            <p>
+                CTV merupakan jaringan stasiun penyiaran Free-To-Air (FTA) nasional utama di bawah naungan CAMA Group yang berkomitmen menyajikan konten digital bermutu tinggi di era modern. Didirikan untuk memenuhi kebutuhan informasi interaktif masyarakat, CTV kini memancar melalui puluhan stasiun transmisi digital terpadu yang menjangkau lebih dari 150 juta pemirsa di seluruh wilayah Indonesia.
+            </p>
+            <p>
+                CTV mengedepankan program yang edukatif, komprehensif, dan menghibur. Rangkaian program unggulan kami mencakup tayangan sinema FTV drama yang menyentuh hati, program berita investigasi yang tajam, siaran olahraga nasional terkini, hingga panggung apresiasi musik anak bangsa. Dengan teknologi penyiaran mutakhir, kami terus melangkah maju menginspirasi Nusantara.
+            </p>
+            <a href="#" class="web-link">Informasi lebih lengkap mengenai jaringan CTV dapat dilihat di www.ctv-digital.co.id</a>
+        </div>
+    </div>
+
+
+    <!-- FOOTER ASSET (Selalu Ada di Bawah Halaman Mana Pun) -->
     <footer>
         <div class="footer-grid">
-            
             <div class="footer-block">
                 <h4>Tentang Korporasi</h4>
                 <ul>
                     <li><a href="#">Profil Perusahaan</a></li>
                     <li><a href="#">Struktur Manajemen</a></li>
-                    <li><a href="#">Penghargaan Industri</a></li>
-                    <li><a href="#">Sejarah Singkat</a></li>
                 </ul>
             </div>
-
             <div class="footer-block">
                 <h4>Lini Usaha</h4>
                 <ul>
-                    <li><a href="#">Televisi Terestrial</a></li>
+                    <li><a href="#" onclick="showPage('penyiaran')">Televisi Terestrial</a></li>
                     <li><a href="#">Produksi Sinema & FTV</a></li>
-                    <li><a href="#">Manajemen Media Digital</a></li>
-                    <li><a href="#">Artha Multimedia</a></li>
                 </ul>
             </div>
-
-            <div class="footer-block">
-                <h4>Tata Kelola</h4>
-                <ul>
-                    <li><a href="#">Pakta Integritas</a></li>
-                    <li><a href="#">Rapat Umum Pemegang Saham (RUPS)</a></li>
-                    <li><a href="#">Sistem Pengaduan Publik</a></li>
-                    <li><a href="#">Anggaran Dasar</a></li>
-                </ul>
-            </div>
-
             <div class="footer-block">
                 <h4>Hubungan Investor</h4>
                 <ul>
                     <li><a href="#">Ikhtisar Keuangan</a></li>
                     <li><a href="#">Laporan Tahunan</a></li>
-                    <li><a href="#">Informasi Dividen</a></li>
-                    <li><a href="#">Keterbukaan Informasi</a></li>
                 </ul>
             </div>
-
-            <div class="footer-block">
-                <h4>Karir & Kontak</h4>
-                <ul>
-                    <li><a href="#">Gabung Bersama Kami</a></li>
-                    <li><a href="#">Hubungi Manajemen</a></li>
-                    <li><a href="#">Alamat Kantor Pusat</a></li>
-                </ul>
-            </div>
-
         </div>
-
         <div class="copyright-bar">
             Hak Cipta Dilindungi Undang-Undang &copy; 2026 PT Cakrawala Media Asia Artha Nusantara.
         </div>
     </footer>
 
+    <!-- INTERACTIVE JAVASCRIPT SYSTEM -->
+    <script>
+        // Fungsi untuk membuka & menutup menu utama (tombol ☰)
+        function toggleMenu() {
+            var overlay = document.getElementById('navOverlay');
+            overlay.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            var overlay = document.getElementById('navOverlay');
+            overlay.classList.remove('active');
+        }
+
+        // Fungsi pemindah halaman tanpa reload (Halaman utama tetap aman tidak terhapus)
+        function showPage(pageId) {
+            // Sembunyikan semua halaman terlebih dahulu
+            var pages = document.getElementsByClassName('page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
+            }
+            
+            // Tampilkan halaman yang dipilih
+            document.getElementById(pageId + 'Page').classList.add('active');
+            
+            // Tutup menu overlay otomatis setelah diklik
+            closeMenu();
+            
+            // Otomatis scroll layar ke bagian paling atas halaman baru
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
-  </html>
-  
+    </html>
+    
