@@ -3,452 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cakrawala Media Asia Artha Nusantara (CAMA)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>CAMA Group - Bidang Usaha Penyiaran</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* RESET & BASE STYLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { background-color: #F8FAFC; color: #1E293B; padding: 20px; }
 
-        body {
-            background-color: #ffffff;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* HEADER & NAVIGATION */
-        header {
-            background-color: #ffffff;
-            border-bottom: 3px solid #002B49;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .logo-cama {
-            font-size: 24px;
-            font-weight: 700;
-            color: #002B49;
-            letter-spacing: 2px;
-        }
-
-        .logo-subtext {
-            font-size: 9px;
-            color: #777;
-            margin-left: 8px;
-            border-left: 1px solid #ccc;
-            padding-left: 8px;
-            text-transform: uppercase;
-            line-height: 1;
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .btn-search {
-            background-color: #ff9800;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .lang-select {
-            border: 1px solid #ccc;
-            padding: 7px 12px;
-            background: #fff;
-            color: #333;
-            font-weight: 600;
-            border-radius: 4px;
-        }
-
-        .menu-toggle {
-            background-color: #002B49;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        /* MENU OVERLAY */
-        .overlay-menu {
-            position: fixed;
-            top: 63px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 63px);
-            background-color: #ffffff;
-            z-index: 999;
-            display: none;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .overlay-menu.active {
-            display: block;
-        }
-
-        .menu-section-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #777;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .menu-list {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .menu-list li {
-            margin-bottom: 15px;
-        }
-
-        .menu-list li a {
-            text-decoration: none;
-            color: #002B49;
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            display: block;
-        }
-
-        /* BREADCRUMB */
-        .breadcrumb {
-            background-color: #ffffff;
-            padding: 15px 20px;
-            font-size: 13px;
-            font-weight: 600;
-            color: #777;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .breadcrumb span {
-            color: #ff9800;
-        }
-
-        /* PAGE MANAGEMENT */
-        .page {
-            display: none;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        /* ================= HALAMAN UTAMA STYLES ================= */
-        .hero-section {
-            background: linear-gradient(rgba(0, 43, 73, 0.85), rgba(0, 128, 128, 0.6)), 
-                        url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 40px;
-            color: white;
-        }
-
-        .hero-section h1 { font-size: 24px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
-        .hero-section p { font-size: 13px; opacity: 0.9; }
-
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            color: #002B49;
-            margin: 40px 0 25px 0;
-        }
-
-        .business-container {
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .business-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            cursor: pointer;
-        }
-
-        .card-img-home {
-            height: 150px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-content-home {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-content-home h3 { font-size: 18px; color: #002B49; margin-bottom: 10px; }
-        .card-content-home p { font-size: 13px; color: #666; }
-
-        /* ================= HALAMAN PENYIARAN STYLES (Dua Jaringan TV) ================= */
-        .penyiaran-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            padding: 0 20px 40px 20px;
-        }
-
-        .tv-station-box {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        /* TV 1: Vanditama (Warna Navy) */
-        .tv-vanditama {
-            background-color: #002B49;
-            color: #ffffff;
-            padding: 35px 25px;
-        }
-
-        /* TV 2: Zetacreat (Warna Midnight Purple Premium) */
-        .tv-zetacreat {
-            background-color: #1a0933;
-            color: #ffffff;
-            padding: 35px 25px;
-            border-top: 4px solid #8a2be2;
-        }
-
-        .tv-station-box h2 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .tv-station-box .managed-by {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .tv-vanditama .managed-by { background-color: #ff9800; color: #fff; }
-        .tv-zetacreat .managed-by { background-color: #00bfff; color: #fff; }
-
-        .tv-station-box p {
-            font-size: 13px;
-            line-height: 1.6;
-            text-align: justify;
-            margin-bottom: 15px;
-            opacity: 0.9;
-        }
-
-        .tv-logo-display {
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .tv-logo-display img {
-            max-width: 100%;
-            height: 55px;
-            object-fit: contain;
-        }
-
-        /* ================= HALAMAN KONTEN STYLES (Gaya SCM) ================= */
-        .konten-title-box { text-align: center; margin: 30px 0; }
-        .konten-title-box h1 { font-size: 36px; font-weight: 400; color: #7cb342; letter-spacing: 2px; text-transform: uppercase; }
-        .konten-title-box .line { width: 80px; height: 2px; background-color: #7cb342; margin: 10px auto 0 auto; }
-        .scm-banner { width: 100%; height: 200px; background: url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=800&q=80') center center; background-size: cover; }
+        /* CONTAINER UTAMA SAKRAL */
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 20px; border-top: 5px solid #00284D; }
         
-        .konten-list-wrapper { display: flex; flex-direction: column; width: 100%; }
-        .orange-profile-box { background-color: #ff9800; color: #ffffff; padding: 30px 20px; text-align: left; border-bottom: 5px solid #ffffff; }
-        .orange-profile-box h2 { font-size: 18px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; }
-        .orange-profile-box p { font-size: 13px; line-height: 1.6; text-align: justify; margin-bottom: 15px; opacity: 0.95; }
-        .orange-profile-box .logo-container { background-color: rgba(255, 255, 255, 0.9); padding: 15px; border-radius: 6px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center; }
-        .orange-profile-box .logo-container img { max-width: 100%; height: 50px; object-fit: contain; }
+        /* BREADCRUMB NAVIGATION */
+        .breadcrumb { font-size: 12px; color: #64748B; margin-bottom: 20px; display: flex; align-items: center; gap: 5px; font-weight: 600; }
+        .breadcrumb a { color: #64748B; text-decoration: none; }
+        .breadcrumb .active { color: #FF8C00; }
 
-        footer { background-color: #222222; color: #b3b3b3; padding: 25px 20px; text-align: center; font-size: 12px; border-top: 3px solid #ff9800; }
+        /* JUDUL HALAMAN UTAMA */
+        .page-title { font-size: 26px; font-weight: 800; color: #00284D; letter-spacing: 1px; margin-bottom: 25px; border-bottom: 2px solid #E2E8F0; padding-bottom: 10px; }
+
+        /* KOTAK UNIT USAHA PENYIARAN */
+        .tv-card { background-color: #00284D; border-radius: 14px; padding: 25px; margin-bottom: 25px; color: #ffffff; position: relative; overflow: hidden; box-shadow: 0 8px 25px rgba(0,40,77,0.15); }
+        .tv-card-frabraya { background-color: #0D1527; border: 1px solid #1E293B; }
+
+        /* BRANDING HEADER KARTU */
+        .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; width: 100%; }
+        .brand-left { display: flex; align-items: center; gap: 15px; }
+        .logo-frame { height: 45px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 8px; }
+        .logo-frame img { max-height: 100%; width: auto; object-fit: contain; }
+        
+        .station-name { font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: 0.5px; color: #ffffff; }
+
+        /* INDIKATOR LIVE LIVE BERKEDIP-KEDIP CEPAT (SCTV STYLE) */
+        .live-status { display: flex; align-items: center; gap: 6px; background: rgba(255, 0, 85, 0.15); border: 1px solid #FF0055; padding: 4px 10px; border-radius: 20px; color: #FF0055; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+        .live-dot { width: 7px; height: 7px; background-color: #FF0055; border-radius: 50%; animation: fastBlink 0.5s infinite alternate; }
+        
+        @keyframes fastBlink {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* BADGE KEPEMILIKAN CORPORATE */
+        .ownership-badge { display: inline-block; padding: 6px 14px; font-size: 11px; font-weight: 700; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px; }
+        .badge-cama { background-color: #FF8C00; color: #ffffff; }
+        .badge-arkananta { background-color: #FF0055; color: #ffffff; }
+
+        /* DESKRIPSI PERUSAHAAN */
+        .description { font-size: 13.5px; line-height: 1.6; color: #E2E8F0; text-align: justify; margin-bottom: 20px; }
+
+        /* SOSIAL MEDIA UPDATE RESMI (WAJIB ADA) */
+        .social-box { display: flex; flex-wrap: wrap; gap: 10px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+        .social-link { font-size: 11.5px; font-weight: bold; color: #ffffff; text-decoration: none; background: rgba(255,255,255,0.1); padding: 6px 15px; border-radius: 20px; display: flex; align-items: center; gap: 5px; transition: background 0.2s; }
+        .social-link:hover { background: rgba(255,255,255,0.2); }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo-area" onclick="showPage('home')">
-            <div class="logo-cama">CAMA</div>
-            <div class="logo-subtext">Cakrawala Media<br>Asia Artha</div>
-        </div>
-        <div class="nav-buttons">
-            <button class="btn-search">🔍</button>
-            <select class="lang-select">
-                <option>ID</option>
-                <option>EN</option>
-            </select>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        </div>
-    </header>
-
-    <!-- NAVIGATION OVERLAY -->
-    <div class="overlay-menu" id="navOverlay">
-        <div class="menu-section-title">USAHA KAMI</div>
-        <ul class="menu-list">
-            <li><a href="#" onclick="showPage('home')">Beranda Utama</a></li>
-            <li><a href="#" onclick="showPage('penyiaran')">Penyiaran (Jaringan TV)</a></li>
-            <li><a href="#" onclick="showPage('konten')">Konten (Rumah Produksi)</a></li>
-        </ul>
-    </div>
-
-    <!-- ==================== HALAMAN 1: HOME ==================== -->
-    <div id="homePage" class="page active">
-        <section class="hero-section">
-            <h1>MENYINERGIKAN INFORMASI, MENGINSPIRASI NUSANTARA</h1>
-            <p>Ekosistem Media Terintegrasi Jaringan Televisi Nasional Digital dan Produksi Sineas Kreatif.</p>
-        </section>
-
-        <h2 class="section-title">Lini Bisnis Utama</h2>
-        <div class="business-container">
-            <div class="business-card" onclick="showPage('penyiaran')">
-                <div class="card-img-home" style="background-image: url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=400&q=80');"></div>
-                <div class="card-content-home">
-                    <h3>Penyiaran Jaringan TV</h3>
-                    <p>Mengelola saluran TV FTA Nasional Terintegrasi: VANDITAMA TV & ZETACREAT TV.</p>
-                </div>
-            </div>
-
-            <div class="business-card" onclick="showPage('konten')">
-                <div class="card-img-home" style="background-image: url('https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=400&q=80');"></div>
-                <div class="card-content-home">
-                    <h3>Produksi Konten & Sinema</h3>
-                    <p>Pusat studio produksi multimedia, FTV, dan Film Layar Lebar Indonesia.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== HALAMAN 2: PENYIARAN (DUA STASIUN TV) ==================== -->
-    <div id="penyiaranPage" class="page">
-        <div class="breadcrumb">
-            🏠 &gt; USAHA KAMI &gt; <span>PENYIARAN</span>
-        </div>
+    <div class="container">
         
-        <div class="konten-title-box">
-            <h1>PENYIARAN</h1>
-            <div class="line"></div>
-        </div>
-
-        <div class="penyiaran-wrapper">
-            <!-- STASIUN TV 1: VANDITAMA TV -->
-            <div class="tv-station-box tv-vanditama">
-                <h2>VANDITAMA TV</h2>
-                <div class="managed-by">Dikelola Langsung Oleh CAMA Holding</div>
-                <p>PT VANDITAMA TELEVISI INDONESIA (VANDITAMA TV) menghadirkan jaringan siaran terestrial digital FTA nasional utama yang berfokus pada pemenuhan kebutuhan informasi interaktif, program berita akurat, edukasi publik, dan tayangan hiburan keluarga Indonesia.</p>
-            </div>
-
-            <!-- STASIUN TV 2: ZETACREAT TV (Aset Logo 1781606509965.png) -->
-            <div class="tv-station-box tv-zetacreat">
-                <div class="tv-logo-display">
-                    <img src="1781606509965.png" alt="Zetacreat Logo">
-                </div>
-                <h2>ZETACREAT TV</h2>
-                <div class="managed-by">Dikelola oleh PT ARKANANTA MEDIA SINEMA</div>
-                <p>ZETACREAT TV merupakan stasiun televisi nasional digital kedua di bawah ekosistem CAMA Group yang operasional penuhnya dipercayakan kepada anak perusahaan kita, PT Arkananta Media Sinema.</p>
-                <p>Berbeda dengan saluran utama, ZETACREAT TV diposisikan secara khusus sebagai saluran multimedia kreatif anak muda yang berfokus menayangkan film-film pendek independen, kompetisi bakat kreatif, musik panggung anak bangsa, serta tayangan sinema premium kekinian.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== HALAMAN 3: KONTEN ==================== -->
-    <div id="kontenPage" class="page">
         <div class="breadcrumb">
-            🏠 &gt; USAHA KAMI &gt; <span>KONTEN</span>
+            <span>🏠</span>
+            <a href="#">USAHA KAMI</a> 
+            <span>&gt;</span> 
+            <span class="active">PENYIARAN</span>
         </div>
 
-        <div class="konten-title-box">
-            <h1>KONTEN</h1>
-            <div class="line"></div>
-        </div>
+        <div class="page-title">PENYIARAN</div>
 
-        <div class="scm-banner"></div>
-
-        <div class="konten-list-wrapper">
-            <!-- FRAMEWORKS FILMS -->
-            <div class="orange-profile-box">
-                <div class="logo-container"><img src="1780734740687.png" alt="Frameworks Films"></div>
-                <h2>PT ARKANANTA MEDIA SINEMA (FRAMEWORKS FILMS)</h2>
-                <p>Divisi konten premium CAMA Group yang memproduksi karya sinematografi layar lebar, film bioskop, sekaligus mengelola operasional stasiun televisi kreatif sekunder kita, ZETACREAT TV.</p>
+        <div class="tv-card">
+            <div class="card-header">
+                <div class="brand-left">
+                    <div class="logo-frame">
+                        <img src="VANDITAMA TVrpg.jpg" onerror="this.onerror=null; this.src='1781258168235.png';">
+                    </div>
+                    <div class="station-name">VANDITAMA TV</div>
+                </div>
+                <div class="live-status"><span class="live-dot"></span>LIVE</div>
             </div>
+            
+            <div class="ownership-badge badge-cama">DIKELOLA LANGSUNG OLEH CAMA HOLDING</div>
+            
+            <p class="description">
+                PT VANDITAMA TELEVISI INDONESIA (VANDITAMA TV) menghadirkan jaringan siaran terestrial digital FTA nasional utama yang berfokus pada pemenuhan kebutuhan informasi interaktif, program berita akurat, edukasi publik, dan tayangan hiburan keluarga Indonesia.
+            </p>
 
-            <!-- CINEMAX STUDIOS -->
-            <div class="orange-profile-box">
-                <div class="logo-container"><img src="1781258168235.png" alt="Cinemax Studios"></div>
-                <h2>PT CINEMAX STUDIOS NUSANTARA (CINEMAX STUDIOS)</h2>
-                <p>Pusat produksi massal konten harian televisi nasional yang menyuplai ratusan judul FTV drama romansa dan sinetron harian prime-time di VANDITAMA TV.</p>
-            </div>
-
-            <!-- CREW ENTERTAINMENT -->
-            <div class="orange-profile-box">
-                <div class="logo-container"><img src="IMG_20260617_092825.jpeg" alt="Crew Entertainment"></div>
-                <h2>PT CREW ENTERTAINMENT INDONESIA (CREW ENTERTAINMENT)</h2>
-                <p>Mengelola ekosistem manajemen kru produksi film profesional dan inkubasi talenta keartisan nasional untuk seluruh lini media CAMA Group.</p>
+            <div class="social-box">
+                <a href="#" class="social-link">📸 Instagram</a>
+                <a href="#" class="social-link">📺 YouTube Channel</a>
+                <a href="#" class="social-link">👥 Facebook</a>
+                <a href="#" class="social-link">🐦 Twitter/X</a>
             </div>
         </div>
+
+        <div class="tv-card tv-card-frabraya">
+            <div class="card-header">
+                <div class="brand-left">
+                    <div class="logo-frame">
+                        <img src="20260619_224101.jpg" alt="Logo FRABRAYA TV">
+                    </div>
+                    <div class="station-name">FRABRAYA TV</div>
+                </div>
+                <div class="live-status"><span class="live-dot"></span>LIVE</div>
+            </div>
+            
+            <div class="ownership-badge badge-arkananta">PRODUKSI ARKANANTA MEDIA SINEMA</div>
+            
+            <p class="description">
+                PT ARKANANTA MEDIA SINEMA (FRABRAYA TV) adalah stasiun televisi swasta nasional Indonesia terbaru di bawah naungan <strong>CAMA Group</strong> yang resmi didirikan pada Jum'at, 19 Juni 2026 pukul 22:45 WIB. Berkomitmen menghadirkan konten penyiaran sinema digital tercanggih, hiburan kreatif orisinal, serta program anak muda masa kini.
+            </p>
+
+            <div class="social-box">
+                <a href="#" class="social-link">📸 Instagram</a>
+                <a href="#" class="social-link">📺 YouTube Channel</a>
+                <a href="#" class="social-link">👥 Facebook</a>
+                <a href="#" class="social-link">🎵 TikTok</a>
+            </div>
+        </div>
+
     </div>
 
-    <footer>
-        Hak Cipta Dilindungi Undang-Undang &copy; 2026 PT Cakrawala Media Asia Artha Nusantara.
-    </footer>
-
-    <script>
-        function toggleMenu() { document.getElementById('navOverlay').classList.toggle('active'); }
-        function closeMenu() { document.getElementById('navOverlay').classList.remove('active'); }
-        function showPage(pageId) {
-            var pages = document.getElementsByClassName('page');
-            for (var i = 0; i < pages.length; i++) { pages[i].classList.remove('active'); }
-            document.getElementById(pageId + 'Page').classList.add('active');
-            closeMenu();
-            window.scrollTo(0, 0);
-        }
-    </script>
 </body>
 </html>
